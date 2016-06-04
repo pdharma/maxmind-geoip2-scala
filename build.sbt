@@ -21,6 +21,10 @@ libraryDependencies ++= Seq(
 
 jarName in assembly := s"${name.value}-${version.value}.jar"
 
+publishTo := Some("Artifactory Realm" at "http://ml-dashboard.personagraph.com:8081/artifactory/pipelines-release")
+
+credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
+
 assemblyOption in assembly ~= { _.copy(includeScala = false) }
 
 mergeStrategy in assembly <<= (mergeStrategy in assembly) { (old) =>
