@@ -31,3 +31,7 @@ lazy val root = (project in file("."))
   )
   .settings(libraryDependencies ++= commonTestLibs)
   .settings(scalacOptions ++= Seq("-feature", "-deprecation"))
+
+publishTo := Some("Artifactory Realm" at "http://ml-dashboard.personagraph.com:8081/artifactory/pipelines-release")
+
+credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
